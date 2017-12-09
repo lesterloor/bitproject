@@ -1,0 +1,13 @@
+head
+  include head.pug
+  body  
+    h3 Bitcoin BTC Price : 
+      span(id="btcPrice") #{COIN.BTC.USD}
+    h3 Bitcoin ETH Price : 
+      span(id="ethPrice") #{COIN.ETH.USD}
+    h3 Bitcoin LTC Price : 
+      span(id="ltcPrice") #{COIN.LTC.USD}
+    h3 Bitcoin XRP Price : 
+      span(id="xrpPrice") #{COIN.XRP.USD}
+    canvas(id="doughnut-chart")
+  script(src="/public/index.js")
