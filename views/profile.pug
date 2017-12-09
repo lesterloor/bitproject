@@ -7,10 +7,12 @@ head
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js")
-  script(src="/public/index.js")
 body
-  canvas(id="myChart" width="400" height="400")
-  h3 Bitcoin USD Price : $#{COIN.USD}
-  h3 Bitcoin ETH Price : $#{COIN.ETH}
-  h3 Bitcoin EUR Price : $#{COIN.EUR}
-  script(src="/public/inddex.js")
+  h3 Bitcoin USD Price : 
+    span(id="usdPrice") #{COIN.USD}
+  h3 Bitcoin ETH Price : 
+    span(id="ethPrice") #{COIN.ETH}
+  h3 Bitcoin EUR Price : 
+    span(id="eurPrice") #{COIN.EUR}
+  canvas(id="myChart" width="400px" height="400px")
+script(src="/public/index.js")

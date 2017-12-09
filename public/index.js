@@ -1,13 +1,17 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     var ctx = document.getElementById("myChart");
+    console.log($("#usdPrice").text());
+    const USD = $("#usdPrice").text();
+    const EUR = $("#eurPrice").text();
+    const ETH = $("#ethPrice").text();
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: ["USD", "ETH", "EUR"],
           datasets: [{
               label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
+              data: [USD, ETH, EUR],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
