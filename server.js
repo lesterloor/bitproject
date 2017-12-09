@@ -3,12 +3,13 @@ var app = express();
 var pug = require("pug");
 var axios = require("axios");
 var PORT = 3040;
-import Chart from 'chart.js';
-var myChart = new Chart(ctx, {...});
+var path = require('path');
+
 
 //Middleware
 app.set('view engine', 'pug');
 app.set('views', './views');
+app.use(express.static(__dirname));
 
 
 app.get('/', function(req,res){

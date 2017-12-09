@@ -1,3 +1,16 @@
-h3 Bitcoin USD Price : $#{COIN.USD}
-h3 Bitcoin ETH Price : $#{COIN.ETH}
-h3 Bitcoin EUR Price : $#{COIN.EUR}
+head
+  meta(name="viewport" content="initial-scale=1, maximum-scale=1")
+  title="PhotoFlow"
+  link(rel="stylesheet" type="text/css" href="/public/style.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js")
+  script(src="/public/index.js")
+body
+  canvas(id="myChart" width="400" height="400")
+  h3 Bitcoin USD Price : $#{COIN.USD}
+  h3 Bitcoin ETH Price : $#{COIN.ETH}
+  h3 Bitcoin EUR Price : $#{COIN.EUR}
+  script(src="/public/inddex.js")
