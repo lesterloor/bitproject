@@ -16,7 +16,7 @@ app.get('/', function(req,res){
   res.send("Hello home")
 })
 app.get('/profile', function(req,res){
-  axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,ETH,EUR')
+  axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,LTC,XRP&tsyms=USD')
   .then(function (response) {
     console.log(response.data);
     res.render("profile.pug",{COIN:response.data})
