@@ -37,7 +37,9 @@ app.get('/profile/mining', function(req,res){
     console.log(error);
   });
 })
-
+app.get('/login', function(req,res){
+    res.render("login.pug")
+})
 
 
 app.listen(process.env.PORT || PORT, function() {
