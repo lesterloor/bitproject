@@ -30,8 +30,15 @@ app.get('/profile/mining', function(req,res){
   var miningAdress = "0xd171c8869e991c51cfe2d1e1ab0aa9744c70a9d3";
   axios.get('https://api.nanopool.org/v1/eth/user/'+ miningAdress)
   .then(function (response) {
-    console.log(response.data.data);
-    res.render("mining.pug",{nanoResponse:response.data.data})
+    axios.get('https://api.nanopool.org/v1/eth/payments/'+ miningAdress)
+    .then(function (paymentsResponse) {
+      console.log(response.data.data);
+      console.log(paymentsResponse.data.data[0]);
+      res.render("mining.pug",{nanoResponse:response.data.data,paymenthistory:paymentsResponse.data.data})
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   })
   .catch(function (error) {
     console.log(error);

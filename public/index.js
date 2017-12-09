@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+console.log( $('.datepayed').text());
     console.log( "ready!" );
     console.log($("#usdPrice").text());
     const BTC = $("#btcPrice").text();
