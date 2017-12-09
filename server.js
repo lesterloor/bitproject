@@ -31,7 +31,7 @@ app.get('/profile/mining', function(req,res){
   axios.get('https://api.nanopool.org/v1/eth/user/'+ miningAdress)
   .then(function (response) {
     console.log(response.data.data);
-    res.render("mining.pug",{nanoResponse:response})
+    res.render("mining.pug",{nanoResponse:response.data.data})
   })
   .catch(function (error) {
     console.log(error);

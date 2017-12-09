@@ -9,10 +9,33 @@ head
         th 12 Hour
         th 24 hHour
       tr
-        td #{nanoResponse.data.data.hashrate}
-        td #{nanoResponse.data.data.avgHashrate.h3}
-        td #{nanoResponse.data.data.avgHashrate.h6}
-        td #{nanoResponse.data.data.avgHashrate.h12}
-        td #{nanoResponse.data.data.avgHashrate.h24}
+        td #{nanoResponse.hashrate}
+        td #{nanoResponse.avgHashrate.h3}
+        td #{nanoResponse.avgHashrate.h6}
+        td #{nanoResponse.avgHashrate.h12}
+        td #{nanoResponse.avgHashrate.h24}
+    table
+      tr
+        th Worker
+        th 3 Hour
+        th 6 Hour
+        th 12 Hour
+        th 24 Hour
+      tr
+        td 
+        - for (var i = nanoResponse.workers.length - 1; i >= 0; --i) {
+            tr
+              h6= nanoResponse.workers[i].id
+            -}
+        td #{nanoResponse.avgHashrate.h3}
+        td #{nanoResponse.avgHashrate.h6}
+        td #{nanoResponse.avgHashrate.h12}
+        td #{nanoResponse.avgHashrate.h24}
+        
+    - for (var i = nanoResponse.workers.length - 1; i >= 0; --i) {
+        tr
+          td= nanoResponse.workers[i].id
+        -}
     
+    x
   script(src="/public/index.js")
