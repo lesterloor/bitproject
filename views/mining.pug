@@ -1,18 +1,61 @@
 head
   include head.pug
-  body  
-    table
-      tr
-        th Current
-        th 3 Hour
-        th 6 Hour
-        th 12 Hour
-        th 24 hHour
-      tr
-        td #{nanoResponse.data.data.hashrate}
-        td #{nanoResponse.data.data.avgHashrate.h3}
-        td #{nanoResponse.data.data.avgHashrate.h6}
-        td #{nanoResponse.data.data.avgHashrate.h12}
-        td #{nanoResponse.data.data.avgHashrate.h24}
+  body
+    id.wrapper
+      h2 Balance #{nanoResponse.balance}
+      h4 Hashrate data  
+      table(id="keywords" cellspacing="0" cellpadding="0")
+        thead  
+          tr
+            th Current
+            th 3 Hour
+            th 6 Hour
+            th 12 Hour
+            th 24 Hour
+        tbody
+          tr
+            td(class="lalign") #{nanoResponse.hashrate}
+            td #{nanoResponse.avgHashrate.h3}
+            td #{nanoResponse.avgHashrate.h6}
+            td #{nanoResponse.avgHashrate.h12}
+            td #{nanoResponse.avgHashrate.h24}
+      h4 Worker Hasrate
+      table(id="keywords" cellspacing="0" cellpadding="0")
+        thead
+          tr
+            th Worker
+            th Current 
+            th 3 Hour
+            th 6 Hour
+            th 12 Hour
+            th 24 Hour
+        tbody    
+          - for (var i = nanoResponse.workers.length - 1; i >= 0; --i) {
+              tr
+                td(class="lalign")= nanoResponse.workers[i].id
+                td= nanoResponse.workers[i].hashrate
+                td= nanoResponse.workers[i].h3
+                td= nanoResponse.workers[i].h6
+                td= nanoResponse.workers[i].h12
+                td= nanoResponse.workers[i].h24
+              -}
+      h4 Payment Data
+      table(id="keywords" cellspacing="0" cellpadding="0")
+        thead  
+          tr
+            th Date
+            th Amount
+            th Confirmed?
+        tbody
+          - for (var i = paymenthistory.length - 1; i >= 0; --i) {
+              tr
+                td(class="datepayed" class="lalign")= paymenthistory[i].date
+                td= paymenthistory[i].amount
+                td= paymenthistory[i].confirmed
+              -}
+
+          
+  
     
+    x
   script(src="/public/index.js")
