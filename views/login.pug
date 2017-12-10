@@ -1,5 +1,7 @@
-include head.pug
-  body
+head
+  include head.pug
+  link(rel="stylesheet" type="text/css" href="/public/login.css")
+body
     .login-wrap
       .login-html
         input#tab-1.sign-in(type="radio", name="tab", checked="")
